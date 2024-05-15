@@ -41,3 +41,39 @@ int busqueda_recursiva(int arreglo[], int inicio, int fin, int valor) {
         return busqueda_recursiva(arreglo, inicio, medio - 1, valor);
     }
 }
+
+int main() {
+    int arreglo[] = {2, 4, 6, 23, 56, 79};
+    int n = sizeof(arreglo) / sizeof(arreglo[0]);
+
+    int valor;
+    printf("Ingrese un valor entero: ");
+    scanf("%d", &valor);
+
+    // Búsqueda lineal
+    int posicion_lineal = busqueda_lineal(arreglo, n, valor);
+    if (posicion_lineal != -1) {
+        printf("Valor encontrado en la posición %d (búsqueda lineal).\n", posicion_lineal);
+    } else {
+        printf("Valor no encontrado (búsqueda lineal).\n");
+    }
+
+    // Búsqueda binaria iterativa
+    int posicion_iterativa = busqueda_iterativa(arreglo, n, valor);
+    if (posicion_iterativa != -1) {
+        printf("Valor encontrado en la posición %d (búsqueda binaria iterativa).\n", posicion_iterativa);
+    } else {
+        printf("Valor no encontrado (búsqueda binaria iterativa).\n");
+    }
+
+    // Búsqueda binaria recursiva
+    int posicion_recursiva = busqueda_recursiva(arreglo, 0, n - 1, valor);
+    if (posicion_recursiva != -1) {
+        printf("Valor encontrado en la posición %d (búsqueda binaria recursiva).\n", posicion_recursiva);
+    } else {
+        printf("Valor no encontrado (búsqueda binaria recursiva).\n");
+    }
+
+    return 0;
+}
+

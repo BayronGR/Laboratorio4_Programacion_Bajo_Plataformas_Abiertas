@@ -26,3 +26,18 @@ int busqueda_iterativa(int arreglo[], int n, int valor) {
     }
     return -1; // Valor no encontrado
 }
+
+// Función para buscar un valor de forma binaria (recursiva) en el arreglo
+int busqueda_recursiva(int arreglo[], int inicio, int fin, int valor) {
+    if (inicio > fin) {
+        return -1; // Valor no encontrado
+    }
+    int medio = inicio + (fin - inicio) / 2;
+    if (arreglo[medio] == valor) {
+        return medio; // Valor encontrado, retorna la posición
+    } else if (arreglo[medio] < valor) {
+        return busqueda_recursiva(arreglo, medio + 1, fin, valor);
+    } else {
+        return busqueda_recursiva(arreglo, inicio, medio - 1, valor);
+    }
+}
